@@ -17,6 +17,8 @@ Users can post their conspiracy theories and other users can add comments about 
 6. React frontend
 7. Deploy to netlify/heroku
 8. Render info from database
+9. Attach users to posts
+10. Attach users to comments
 
 ### Goals
 
@@ -106,8 +108,7 @@ Time Estimtates
 
 ## Post MVP
 
-1. Attach users to comments
-2. Add a counter to each theory so the listing page shows how many comments it has
+1. Add a counter to each theory so the listing page shows how many comments it has
 
 
 ## Code Showcase
