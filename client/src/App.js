@@ -1,31 +1,38 @@
 import './App.css';
 import Layout from './Layout/Layout';
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useHistory } from 'react-router-dom'
 import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
 import { useState } from 'react'
-import {loginUser, registerUser} from './Services/auth'
+import { loginUser, registerUser } from './Services/auth'
+
 
 
 function App() {
-const [currentUser, setCurrentUser] = useState(null)
+  const [currentUser, setCurrentUser] = useState(null)
+  const history = useHistory()
 
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData)
     setCurrentUser(userData)
+    history.push('/listing')
   }
 
   const handleRegister = async (formData) => {
     const userData = await registerUser(formData)
     setCurrentUser(userData)
+    history.push('/listing')
+
   }
   
   console.log(currentUser)
 
   return (
     <div className="App">
-      <Layout>
+      <Layout
+      currentUser={currentUser}
+      >
       
         <Switch>
         <Route path='/landing'>
