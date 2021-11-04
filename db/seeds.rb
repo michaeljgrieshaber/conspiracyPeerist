@@ -23,7 +23,7 @@ User.destroy_all
 
 puts "#{User.count} users created"
 
-@post1 = Post.create!(title: 'Birds are no real', user_id: @user1.id)
+@post1 = Post.create!(title: 'Birds are not real', user_id: @user1.id)
 @post2 = Post.create!(title: 'Area 51', user_id: @user1.id)
 @post3 = Post.create!(title: 'Hollow Earth', user_id: @user1.id)
 @post4 = Post.create!(title: 'Avril Lavigne is a robot', user_id: @user1.id)
