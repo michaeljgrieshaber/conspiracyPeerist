@@ -4,7 +4,7 @@ import { Switch, Route, useHistory } from 'react-router-dom'
 import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
 import { useState } from 'react'
-import { loginUser, registerUser } from './Services/auth'
+import { loginUser, registerUser, removeToken } from './Services/auth'
 
 
 
@@ -23,7 +23,13 @@ function App() {
     const userData = await registerUser(formData)
     setCurrentUser(userData)
     history.push('/listing')
+  }
 
+  const handleLogout = () => {
+    setCurrentUser(null)
+    localStorage.removeItem('authToken')
+    removeToken()
+    // history.push('/listing')
   }
   
   console.log(currentUser)
@@ -31,7 +37,8 @@ function App() {
   return (
     <div className="App">
       <Layout
-      currentUser={currentUser}
+        currentUser={currentUser}
+        handleLogout={handleLogout}
       >
       
         <Switch>
