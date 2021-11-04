@@ -15,12 +15,12 @@ export const makeComment = async (commentData) => {
   return resp.data
 }
 
-export const makeComment = async (id, commentData) => {
+export const updateComment = async (id, commentData) => {
   const resp = await api.put(`/comments/${id}`, {comment: commentData})
   return resp.data
 }
 
-export const makeComment = async (id) => {
+export const deleteComment = async (id) => {
   const resp = await api.delete(`/comments/${id}`)
   return resp
 }
