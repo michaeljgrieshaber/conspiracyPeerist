@@ -5,7 +5,7 @@ import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
 import { useState, useEffect } from 'react'
 import { loginUser, registerUser, removeToken, verifyUser } from './Services/auth'
-
+import MainContainer from './Containers/MainContainer';
 
 
 function App() {
@@ -52,15 +52,11 @@ function App() {
           <h2>landing</h2>
           </Route>
 
-        <Route path='/listing'>
-          <h2>Listing</h2>
-          </Route>
-
         <Route path='/login'>
-            <Login
-            handleLogin={handleLogin}
-            />
-          </Route>
+          <Login
+          handleLogin={handleLogin}
+          />
+        </Route>
 
           <Route path='/register'>
             <Register
@@ -68,12 +64,16 @@ function App() {
             />
           </Route>
 
+          <Route path='/'>
+            <MainContainer />
+          </Route>
+
           <Route path='/view'>
-          <h2>view</h2>
+            <h2>view</h2>
           </Route>
 
           <Route path='/create'>
-          <h2>create</h2>
+            <h2>create</h2>
           </Route>
 
       </Switch>
