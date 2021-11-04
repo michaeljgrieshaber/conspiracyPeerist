@@ -1,6 +1,8 @@
 import './App.css';
 import Layout from './Layout/Layout';
-import {Switch, Route} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
+import Login from './Screens/Landing/Listing/Register/Login/Login';
+import Register from './Screens/Landing/Listing/Register/Register';
 
 function App() {
   return (
@@ -15,10 +17,10 @@ function App() {
           <h2>home</h2>
           </Route>
         <Route path='/login'>
-          <h2>login page</h2>
+          <Login />
           </Route>
           <Route path='/register'>
-          <h2>register page</h2>
+          <Register />
           </Route>
           <Route path='/view'>
           <h2>view</h2>
