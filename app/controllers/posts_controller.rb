@@ -12,7 +12,8 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: @post
+    render json: @post, include: [user: {only: ['username']} , comments: {include: [user: {only: ['username']}]} ]
+
   end
 
   # POST /posts
