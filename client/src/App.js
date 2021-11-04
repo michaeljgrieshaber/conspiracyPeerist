@@ -3,8 +3,8 @@ import Layout from './Layout/Layout';
 import { Switch, Route, useHistory } from 'react-router-dom'
 import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
-import { useState } from 'react'
-import { loginUser, registerUser, removeToken } from './Services/auth'
+import { useState, useEffect } from 'react'
+import { loginUser, registerUser, removeToken, verifyUser } from './Services/auth'
 
 
 
@@ -12,6 +12,13 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null)
   const history = useHistory()
 
+  useEffect(() => {
+    const handleVerify = async () => {
+      const userData = await verifyUser()
+      setCurrentUser(userData)
+    }
+    handleVerify()
+  },[])
 
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData)
@@ -29,7 +36,6 @@ function App() {
     setCurrentUser(null)
     localStorage.removeItem('authToken')
     removeToken()
-    // history.push('/listing')
   }
   
   console.log(currentUser)
@@ -47,7 +53,7 @@ function App() {
           </Route>
 
         <Route path='/listing'>
-          <h2>home</h2>
+          <h2>Listing</h2>
           </Route>
 
         <Route path='/login'>
