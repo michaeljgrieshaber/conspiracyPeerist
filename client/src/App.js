@@ -3,8 +3,17 @@ import Layout from './Layout/Layout';
 import { Switch, Route } from 'react-router-dom'
 import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
+import { useState } from 'react'
+
+
 
 function App() {
+const [currentUser, setCurrentUser] = useState(null)
+
+
+  const handleLogin = async (formData) => {
+  
+}
   return (
     <div className="App">
       <Layout>
