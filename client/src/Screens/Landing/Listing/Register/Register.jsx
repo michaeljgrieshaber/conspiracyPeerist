@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-export default function Register() {
+export default function Register(props) {
 
   const [formData, setFormData] = useState({
     email: '',
@@ -20,8 +20,11 @@ export default function Register() {
   }
   return (
     <div>
-         <h2>Register</h2>
-      <form>
+      <h2>Register</h2>
+      <form onSubmit={(e) => {
+        e.preventDefault()
+        props.handleRegister(formData)
+      }}>
       <lable>
           Username:
         <input
@@ -48,7 +51,7 @@ export default function Register() {
         value={password}
           onChange={handleChange}/>
           </lable>
-        <Link><button>Submit</button></Link>
+        <button>Submit</button>
       </form>
     </div>
   )

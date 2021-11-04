@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom'
 import Login from './Screens/Landing/Listing/Register/Login/Login';
 import Register from './Screens/Landing/Listing/Register/Register';
 import { useState } from 'react'
-import {loginUser} from './Services/auth'
+import {loginUser, registerUser} from './Services/auth'
 
 
 function App() {
@@ -14,7 +14,15 @@ const [currentUser, setCurrentUser] = useState(null)
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData)
     setCurrentUser(userData)
-}
+  }
+
+  const handleRegister = async (formData) => {
+    const userData = await registerUser(formData)
+    setCurrentUser(userData)
+  }
+  
+  console.log(currentUser)
+
   return (
     <div className="App">
       <Layout>
@@ -35,7 +43,9 @@ const [currentUser, setCurrentUser] = useState(null)
           </Route>
 
           <Route path='/register'>
-          <Register />
+            <Register
+            handleRegister={handleRegister}
+            />
           </Route>
 
           <Route path='/view'>
