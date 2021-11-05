@@ -48,6 +48,9 @@ export default function MainContainer() {
           handleMakePost={handleMakePost}
           />
         </Route>
+        <Route path='/posts/:id'>
+          {/* post detail */}
+          </Route>
 
       </Switch>
     </div>
