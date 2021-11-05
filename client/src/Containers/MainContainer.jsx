@@ -1,21 +1,18 @@
 import { useState, useEffect } from "react"
 import { getAllPosts } from '../Services/posts'
 import { getAllComments } from '../Services/comments'
-import {Switch, Route, useHistory, useParams} from 'react-router-dom'
+import {Switch, Route, useHistory} from 'react-router-dom'
 import Posts from "../Screens/Posts/Posts"
 import MakePost from "../Screens/MakePost/MakePost"
-import { createPost, getOnePost } from "../Services/posts"
+import { createPost } from "../Services/posts"
 import OnePost from "../Screens/OnePost/OnePost"
 
 
 export default function MainContainer() {
   const [posts, setPosts] = useState([])
-  const [post, setPost] = useState({})
   const [comments, setComments] = useState([])
   const history = useHistory()
-  const { id } = useParams();
 
-  // console.log(comments)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -33,14 +30,6 @@ export default function MainContainer() {
     fetchComments()
   }, [])
 
-  useEffect(() => {
-    const fetchPost = async () => {
-      const post = await getOnePost(20);
-      setPost(post);
-    };
-    fetchPost();
-  }, [id]);
-  
   const handleMakePost = async (formData) => {
     const newPost = await createPost(formData)
     setPosts(prevState => [...prevState, newPost])
@@ -51,9 +40,10 @@ export default function MainContainer() {
     <div>
         
       <Switch>
-      <Route path={`/posts/${id}`}>
+      <Route path='/posts/:id'>
           <OnePost
-            post={post}/>
+            posts={posts}
+          />
           </Route>
         <Route path='/posts'>
           <Posts
