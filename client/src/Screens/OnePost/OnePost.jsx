@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import MakeComment from '../MakeComment/MakeComment'
-import { makeComment } from "../../Services/comments"
-
+import { deleteComment, makeComment } from "../../Services/comments"
 
 export default function OnePost(props) {
   const { posts } = props
@@ -10,10 +9,6 @@ export default function OnePost(props) {
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState(null)
 
-
-  
-  console.log(posts.length)
-  
   useEffect(() => {
     const test = () => {
       const singlePost = posts.find(element => element.id === Number(id))
@@ -25,24 +20,25 @@ export default function OnePost(props) {
     }
   }, [id, posts])
   
-  console.log(post)
 
   const handleMakeComment = async (formData) => {
     const newComment = await makeComment(formData)
     setComments(prevState => [...prevState, newComment])
   }
 
-
+  const handleCommentDelete = async (id) => {
+    await deleteComment(id)
+    setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
+  }
   
   return (
     <div>
-      <p>one post</p>
       <p>{post?.title}</p>
       <p>By: {post?.user.username}</p>
       <p> {comments?.map(comment => (
-        <p>{comment.content}</p>
+        <p>{comment.content}<button>Edit</button><button onClick={()=> handleCommentDelete(comment.id)}>Delete</button></p>
       ))}
-      <button>edit</button><button>delete</button></p>
+      </p>
       <MakeComment
         post={post}
       handleMakeComment={handleMakeComment}

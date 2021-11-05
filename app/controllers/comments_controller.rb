@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [ :show, :update, :destroy ]
-  before_action :authorize_request, except: [ :index, :show ]
+  before_action :authorize_request, except: [ :index, :show, ]
   before_action :set_user_comment, only: [:update, :destroy]
 
   # GET /comments
@@ -48,7 +48,7 @@ class CommentsController < ApplicationController
     end
 
     def set_user_comment
-      @comment = @current_user.comment.find(params[:id])
+      @comment = @current_user.comments.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
