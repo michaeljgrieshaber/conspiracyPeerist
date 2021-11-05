@@ -4,7 +4,7 @@ export default function MakeComment(props) {
   const [formData, setFormData] = useState({
     content: ''
     })
-    const {handleMakePost} = props
+    const {handleMakeComment} = props
     
     const {content} = formData
   
@@ -18,7 +18,7 @@ export default function MakeComment(props) {
     <div>
       <form onSubmit={(e) => {
         e.preventDefault()
-        handleMakePost(formData)
+        handleMakeComment(formData)
       }}>
       <label>
         Add Comment:

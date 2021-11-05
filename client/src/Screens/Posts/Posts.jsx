@@ -4,10 +4,6 @@ export default function Posts(props) {
   const { posts } = props
 
 
-
-
-  
-  
   return (
     <div>
       <h2>Posts</h2>

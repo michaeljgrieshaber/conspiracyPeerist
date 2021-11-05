@@ -14,6 +14,8 @@ export default function MainContainer() {
   const history = useHistory()
 
 
+console.log(comments)
+
   useEffect(() => {
     const fetchPosts = async () => {
       const postList = await getAllPosts()

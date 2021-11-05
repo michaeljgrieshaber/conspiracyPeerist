@@ -3,12 +3,14 @@ import {useState, useEffect} from 'react'
 import MakeComment from '../MakeComment/MakeComment'
 
 export default function OnePost(props) {
-  const { posts } = props
+  const { posts, handleMakeComment } = props
   const { id } = useParams();
   const [post, setPost] = useState(null)
-  
+
+
   
   console.log(posts.length)
+  
   useEffect(() => {
     const test = () => {
       setPost(posts.find(element => element.id === Number(id)))
@@ -16,7 +18,8 @@ export default function OnePost(props) {
     if (posts.length) {
       test()
     }
-  },[id, posts])
+  }, [id, posts])
+  
   console.log(post)
 
 
@@ -25,9 +28,12 @@ export default function OnePost(props) {
   return (
     <div>
       <p>one post</p>
-      {/* <p>{post.title}</p> */}
-      {/* <p>By: {post.user.username}</p> */}
-      <MakeComment />
+      {/* <p>{post.title}</p>
+      <p>By: {post.user.username}</p>
+      <p> {post.comments[0].content}</p> */}
+      <MakeComment
+      handleMakeComment={handleMakeComment}
+      />
     </div>
   )
 }
