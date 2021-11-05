@@ -33,15 +33,6 @@ export default function Login(props) {
           onChange={handleChange}
         />
         </lable>
-        {/* <lable>
-          Username:
-        <input
-          type='text'
-          name='username'
-          value={username}
-          onChange={handleChange}
-        /> */}
-        {/* </lable> */}
         <lable>
           Password:
         <input
