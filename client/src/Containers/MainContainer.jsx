@@ -27,7 +27,7 @@ export default function MainContainer() {
 
   return (
     <div>
-        <h2>main container</h2>
+        
       <Switch>
         <Route path='/posts'>
           <Posts

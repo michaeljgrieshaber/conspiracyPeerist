@@ -23,13 +23,13 @@ function App() {
   const handleLogin = async (formData) => {
     const userData = await loginUser(formData)
     setCurrentUser(userData)
-    history.push('/listing')
+    history.push('/posts')
   }
 
   const handleRegister = async (formData) => {
     const userData = await registerUser(formData)
     setCurrentUser(userData)
-    history.push('/listing')
+    history.push('/posts')
   }
 
   const handleLogout = () => {
@@ -67,17 +67,7 @@ function App() {
           <Route path='/'>
             <MainContainer />
           </Route>
-
-          <Route path='/view'>
-            <h2>view</h2>
-          </Route>
-
-          <Route path='/create'>
-            <h2>create</h2>
-          </Route>
-
       </Switch>
-      
       </Layout>
     </div>
   );

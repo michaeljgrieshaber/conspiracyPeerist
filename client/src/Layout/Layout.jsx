@@ -10,10 +10,10 @@ export default function Layout(props) {
         {
           currentUser ? <div>
             <p>Welcome {currentUser.username}</p>
-            <Link to='/'>Home</Link>
+            <Link to='/posts'>Home</Link>
             <button onClick={handleLogout}>Logout</button></div> :
             <div>
-        <Link to='/'>Home</Link>
+        <Link to='/posts'>Home</Link>
         <Link to='/register'>Register</Link>
         <Link to='/login'>Login</Link>
         </div>
