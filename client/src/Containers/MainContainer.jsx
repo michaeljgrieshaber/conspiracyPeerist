@@ -15,7 +15,7 @@ export default function MainContainer() {
   const history = useHistory()
   const { id } = useParams();
 
-  console.log(comments)
+  // console.log(comments)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -35,7 +35,7 @@ export default function MainContainer() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const post = await getOnePost(id);
+      const post = await getOnePost(20);
       setPost(post);
     };
     fetchPost();
@@ -51,6 +51,10 @@ export default function MainContainer() {
     <div>
         
       <Switch>
+      <Route path={`/posts/${id}`}>
+          <OnePost
+            post={post}/>
+          </Route>
         <Route path='/posts'>
           <Posts
           posts={posts}
@@ -61,10 +65,7 @@ export default function MainContainer() {
           handleMakePost={handleMakePost}
           />
         </Route>
-        <Route path='/posts/id'>
-          <OnePost
-            post={post}/>
-          </Route>
+
 
       </Switch>
     </div>
