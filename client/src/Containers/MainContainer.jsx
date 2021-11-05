@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
 import { getAllPosts } from '../Services/posts'
 import { getAllComments } from '../Services/comments'
-import {Switch, Route} from 'react-router-dom'
+import {Switch, Route, useHistory} from 'react-router-dom'
 import Posts from "../Screens/Posts/Posts"
 import MakePost from "../Screens/MakePost/MakePost"
+import { createPost } from "../Services/posts"
 
 
 export default function MainContainer() {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([])
+  const history = useHistory()
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -24,7 +26,13 @@ export default function MainContainer() {
       setComments(commentsList)
     }
     fetchComments()
-  },[])
+  }, [])
+  
+  const handleMakePost = async (formData) => {
+    const newPost = await createPost(formData)
+    setPosts(prevState => [...prevState, newPost])
+    history.push('/posts')
+  }
 
   return (
     <div>
@@ -36,7 +44,9 @@ export default function MainContainer() {
           />
         </Route>
         <Route path='/makepost'>
-          <MakePost />
+          <MakePost
+          handleMakePost={handleMakePost}
+          />
         </Route>
 
       </Switch>
