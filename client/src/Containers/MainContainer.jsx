@@ -4,7 +4,6 @@ import {Switch, Route, useHistory} from 'react-router-dom'
 import Posts from "../Screens/Posts/Posts"
 import MakePost from "../Screens/MakePost/MakePost"
 import { createPost } from "../Services/posts"
-import { makeComment } from "../Services/comments"
 import OnePost from "../Screens/OnePost/OnePost"
 
 
@@ -38,11 +37,6 @@ console.log(comments)
     history.push('/posts')
   }
 
-  const handleMakeComment = async (formData) => {
-    const newComment = await makeComment(formData)
-    setComments(prevState => [...prevState, newComment])
-    history.push('/posts/:id')
-  }
 
 
 
@@ -53,7 +47,7 @@ console.log(comments)
       <Route path='/posts/:id'>
           <OnePost
             posts={posts}
-            handleMakeComment={handleMakeComment}
+            
           />
           </Route>
         <Route path='/posts'>
@@ -63,7 +57,7 @@ console.log(comments)
         </Route>
         <Route path='/makepost'>
           <MakePost
-          handleMakePost={handleMakePost}
+         
           />
         </Route>
 
