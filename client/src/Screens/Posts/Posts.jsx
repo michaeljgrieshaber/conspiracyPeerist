@@ -6,9 +6,11 @@ export default function Posts(props) {
   return (
     <div>
       <h2>Posts</h2>
-      <Link>Create a post</Link>
+      <Link to='/makepost'>Create a post</Link>
       {posts.map((post) => (
-        <p>{post.title}</p>
+        <div key={`post${post.id}`}>
+          <p>{post.title}</p>
+        </div>
       ))}
       
     </div>

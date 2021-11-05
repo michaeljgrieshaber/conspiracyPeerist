@@ -2,7 +2,8 @@ import { useState, useEffect } from "react"
 import { getAllPosts } from '../Services/posts'
 import { getAllComments } from '../Services/comments'
 import {Switch, Route} from 'react-router-dom'
-import Posts from "../Screens/Posts"
+import Posts from "../Screens/Posts/Posts"
+import MakePost from "../Screens/MakePost/MakePost"
 
 
 export default function MainContainer() {
@@ -34,7 +35,9 @@ export default function MainContainer() {
           posts={posts}
           />
         </Route>
-        {/* <Route path='/makePost'></Route> */}
+        <Route path='/makepost'>
+          <MakePost />
+        </Route>
 
       </Switch>
     </div>
