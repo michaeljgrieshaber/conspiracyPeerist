@@ -10,6 +10,8 @@ import EditComment from "../Screens/EditComment/EditComment"
 
 export default function MainContainer() {
   const [posts, setPosts] = useState([])
+  const [toggle, setToggle] = useState(false)
+
   const history = useHistory()
 
   useEffect(() => {
@@ -18,7 +20,7 @@ export default function MainContainer() {
       setPosts(postList)
     }
     fetchPosts()
-  }, [])
+  }, [toggle])
   
   const handleMakePost = async (formData) => {
     const newPost = await createPost(formData)
@@ -34,9 +36,9 @@ export default function MainContainer() {
         
       <Switch>
 
-      <Route path='/comments/:id/edit'>
+      <Route path='/comments/:id'>
           <EditComment
-          posts={posts}
+          setToggle={setToggle}
           />
         </Route>
         

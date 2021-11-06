@@ -1,37 +1,46 @@
 import {useState, useEffect} from 'react'
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
+import { getOneComment, updateComment } from '../../Services/comments'
 
 export default function EditComment(props) {
   const [formData, setFormData] = useState({
     content: ''
     })
-    const {handleMakeComment, posts} = props
   const { content } = formData
-  const {id} = useParams
+  const { id } = useParams()
+  const {setToggle} = props
+  const history = useHistory()
+
+  
 
   useEffect(() => {
-    const prefillFormData = () => {
-      const postItem = posts.find(post => post.id === Number(id))
+    const prefillFormData = async () => {
+      const oneComment = await getOneComment(id)
       setFormData({
-        content: postItem.content
+        content: oneComment.content
       })
     }
-    if (posts.length){
       prefillFormData()
-    }
-  },[posts])
+  },[id])
   
     const handleChange = (e) => {
       const { value } = e.target
       setFormData({ content: value })
+
     }
+  
+  const handleSubmit = async ()=> {
+    const newComment = await updateComment(id, formData)
+    setToggle(prevState => !prevState)
+history.push(`/posts/${newComment.post_id}`)
+  }
 
 
   return (
     <div>
       <form onSubmit={(e) => {
         e.preventDefault()
-        handleMakeComment({ ...formData, post_id:post.id })
+        handleSubmit()
       }}>
       <label>
         Edit Comment:

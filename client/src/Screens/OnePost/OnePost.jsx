@@ -33,14 +33,16 @@ export default function OnePost(props) {
   }
   return (
     <div>
-      <p>{post?.title}</p>
-      <p>By: {post?.user.username}</p>
-      <p> {comments?.map(comment => (
-        <p>{comment.content}{`-${comment?.user?.username}`}
-          <Link to={`/comments/${comment.id}/edit`}><button>Edit</button></Link>
-          <button onClick={() => handleCommentDelete(comment.id)}>Delete</button></p>
+      <div>{post?.title}</div>
+      <div>By: {post?.user.username}</div>
+      <div> {comments?.map(comment => (
+        <div key={comment.id}>
+          {comment.content}{`-${comment?.user?.username}`}
+          <Link to={`/comments/${comment?.id}`}><button>Edit</button></Link>
+          <button onClick={() => handleCommentDelete(comment.id)}>Delete</button>
+        </div>
       ))}
-      </p>
+      </div>
       <MakeComment
         post={post}
       handleMakeComment={handleMakeComment}
