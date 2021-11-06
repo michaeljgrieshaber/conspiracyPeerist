@@ -38,16 +38,17 @@ function App() {
     removeToken()
   }
   
-  console.log(currentUser)
 
   return (
     <div className="App">
+
       <Layout
         currentUser={currentUser}
         handleLogout={handleLogout}
       >
       
         <Switch>
+
         <Route path='/landing'>
           <h2>landing</h2>
           </Route>
@@ -67,7 +68,9 @@ function App() {
           <Route path='/'>
             <MainContainer />
           </Route>
-      </Switch>
+
+        </Switch>
+        
       </Layout>
     </div>
   );

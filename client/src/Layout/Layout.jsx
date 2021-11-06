@@ -6,7 +6,7 @@ export default function Layout(props) {
   return (
     <div>
       <header>
-        <h1><Link to='landing'>Conspiracy Theories</Link></h1>
+        <h1><Link to='landing'>Conspiracy Peerist</Link></h1>
         {
           currentUser ? <div>
             <p>Welcome {currentUser.username}</p>

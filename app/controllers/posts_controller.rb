@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
 
-    render json: @posts
+    render json: @posts, include: [user: {only: ['username']} , comments: {include: [user: {only: ['username']}]} ]
   end
 
   # GET /posts/1
@@ -22,7 +22,7 @@ class PostsController < ApplicationController
     @post.user = @current_user
 
     if @post.save
-      render json: @post, status: :created, location: @post
+      render json: @post, include: [user: {only: ['username']} , comments: {include: [user: {only: ['username']}]} ], status: :created, location: @post
     else
       render json: @post.errors, status: :unprocessable_entity
     end
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      render json: @post
+      render json: @post, include: [user: {only: ['username']} , comments: {include: [user: {only: ['username']}]} ]
     else
       render json: @post.errors, status: :unprocessable_entity
     end
