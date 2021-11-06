@@ -36,7 +36,9 @@ export default function OnePost(props) {
       <p>{post?.title}</p>
       <p>By: {post?.user.username}</p>
       <p> {comments?.map(comment => (
-        <p>{comment.content}{`-${comment?.user?.username}`}<Link to={`/comments/${comment.id}/edit`}><button>Edit</button></Link><button onClick={()=> handleCommentDelete(comment.id)}>Delete</button></p>
+        <p>{comment.content}{`-${comment?.user?.username}`}
+          <Link to={`/comments/${comment.id}/edit`}><button>Edit</button></Link>
+          <button onClick={() => handleCommentDelete(comment.id)}>Delete</button></p>
       ))}
       </p>
       <MakeComment

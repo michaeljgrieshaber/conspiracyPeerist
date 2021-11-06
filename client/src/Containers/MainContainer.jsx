@@ -10,11 +10,9 @@ import EditComment from "../Screens/EditComment/EditComment"
 
 export default function MainContainer() {
   const [posts, setPosts] = useState([])
-  const [comments, setComments] = useState([])
   const history = useHistory()
 
 
-console.log(comments)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -24,13 +22,7 @@ console.log(comments)
     fetchPosts()
   }, [])
   
-  // useEffect(() => {
-  //   const fetchComments = async () => {
-  //     const commentsList = await getAllComments()
-  //     setComments(commentsList)
-  //   }
-  //   fetchComments()
-  // }, [])
+
 
   const handleMakePost = async (formData) => {
     const newPost = await createPost(formData)
@@ -63,6 +55,7 @@ console.log(comments)
         </Route>
         <Route path='/makepost'>
           <MakePost
+            handleMakePost={handleMakePost}
           />
         </Route>
 
