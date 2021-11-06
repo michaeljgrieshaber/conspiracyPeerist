@@ -5,6 +5,7 @@ import Posts from "../Screens/Posts/Posts"
 import MakePost from "../Screens/MakePost/MakePost"
 import { createPost } from "../Services/posts"
 import OnePost from "../Screens/OnePost/OnePost"
+import EditComment from "../Screens/EditComment/EditComment"
 
 
 export default function MainContainer() {
@@ -44,6 +45,11 @@ console.log(comments)
     <div>
         
       <Switch>
+
+      <Route path='/comments/:id/edit'>
+        <EditComment />
+        </Route>
+        
       <Route path='/posts/:id'>
           <OnePost
             posts={posts}
@@ -57,7 +63,6 @@ console.log(comments)
         </Route>
         <Route path='/makepost'>
           <MakePost
-         
           />
         </Route>
 
