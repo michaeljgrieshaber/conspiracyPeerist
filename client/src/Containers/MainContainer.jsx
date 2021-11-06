@@ -12,8 +12,6 @@ export default function MainContainer() {
   const [posts, setPosts] = useState([])
   const history = useHistory()
 
-
-
   useEffect(() => {
     const fetchPosts = async () => {
       const postList = await getAllPosts()
@@ -22,8 +20,6 @@ export default function MainContainer() {
     fetchPosts()
   }, [])
   
-
-
   const handleMakePost = async (formData) => {
     const newPost = await createPost(formData)
     setPosts(prevState => [...prevState, newPost])
@@ -39,7 +35,9 @@ export default function MainContainer() {
       <Switch>
 
       <Route path='/comments/:id/edit'>
-        <EditComment />
+          <EditComment
+          posts={posts}
+          />
         </Route>
         
       <Route path='/posts/:id'>
