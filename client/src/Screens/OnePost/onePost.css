@@ -1,0 +1,30 @@
+.onePostPage{
+  display: flex;
+  flex-direction: column;
+}
+
+.titleAndName{
+  background-color: #384955;
+  color: white;
+  max-width: 100px;
+  margin: auto;
+}
+
+.comment{
+  background: #4280A5;
+  color: white;
+  max-width: 100px;
+  margin: auto;
+
+}
+
+
+
+
+.editButton{
+  background-color: #C4C4C4;
+}
+
+.deleteButton{
+  background-color: red;
+}

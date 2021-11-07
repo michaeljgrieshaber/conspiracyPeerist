@@ -1,0 +1,19 @@
+.landingDiv{
+  display: flex;
+  flex-direction: column;
+}
+
+.money{
+  height: 350px;
+  width: 550px;
+  margin: auto;
+  margin-top: 3%;
+}
+
+.truthButton{
+  background-color: #4280A5;
+  color: #FFFFFF;
+  font-size: 20px;
+  padding: 2%;
+  margin-top: 2%;
+}
