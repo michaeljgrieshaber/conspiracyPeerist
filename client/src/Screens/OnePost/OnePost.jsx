@@ -42,7 +42,7 @@ export default function OnePost(props) {
   return (
     <div>
       <div>{post?.title}</div>
-      <div>By: {post?.user.username}</div>
+      <div>By: {post?.user?.username}</div>
       <div> {comments?.map(comment => (
         <div key={comment.id}>
           {comment?.content}
