@@ -23,23 +23,21 @@ export default function Login(props) {
         e.preventDefault()
         props.handleLogin(formData)
       }}>
-        <lable>
-          Email:
+          <div>Email:</div>
         <input
           type='text'
           name='email'
           value={email}
           onChange={handleChange}
         />
-        </lable>
-        <lable>
-          Password:
+        
+          
+          <div>Password:</div>
         <input
         type='password'
         name='password'
         value={password}
           onChange={handleChange}/>
-          </lable>
         <button>Submit</button>
       </form>
     </div>

@@ -26,32 +26,26 @@ export default function Register(props) {
         e.preventDefault()
         props.handleRegister(formData)
       }}>
-      <lable>
-          Username:
+          <div>Username:</div>
         <input
           type='text'
           name='username'
           value={username}
           onChange={handleChange}
         />
-        </lable>
-        <lable>
-          Email:
+          <div>Email:</div>
         <input
           type='text'
           name='email'
           value={email}
           onChange={handleChange}
         />
-        </lable>
-        <lable>
-          Password:
+          <div>Password:</div>
         <input
         type='password'
         name='password'
         value={password}
           onChange={handleChange}/>
-          </lable>
         <button>Submit</button>
       </form>
     </div>
