@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import MakeComment from '../MakeComment/MakeComment'
 import { deleteComment, makeComment } from "../../Services/comments"
 import { Link } from 'react-router-dom'
+import './onePost.css'
 
 export default function OnePost(props) {
   const { posts } = props
@@ -40,15 +41,18 @@ export default function OnePost(props) {
 
 
   return (
-    <div>
-      <div>{post?.title}</div>
-      <div>By: {post?.user?.username}</div>
+    <div className='onePostPage'>
+      <div className='titleAndName'>
+      <div >{post?.title}</div>
+        <div>By: {post?.user?.username}</div>
+        </div>
       <div> {comments?.map(comment => (
         <div key={comment.id}>
+          <div className='comment'>
           {comment?.content}
           {`-${comment?.user?.username}`}
-          <Link to={`/comments/${comment?.id}`}><button>Edit</button></Link>
-          <button onClick={() => handleCommentDelete(comment.id)}>Delete</button> 
+          <Link to={`/comments/${comment?.id}`}><button className='editButton'>Edit</button></Link>
+          <button className='deleteButton' onClick={() => handleCommentDelete(comment.id)}>X</button> 
           
           {/* {
               comment.user_id === currentUser.id ?
@@ -58,7 +62,7 @@ export default function OnePost(props) {
                 <div>
                 </div>
           } */}
-          
+          </div>
           
 
         </div>
