@@ -60,7 +60,7 @@ export default function MainContainer(props) {
             handleMakePost={handleMakePost}
           />
         </Route>
-        <Route path='/'>
+        <Route exact path='/'>
           <Landing />
           </Route>
 

@@ -8,7 +8,7 @@ export default function Layout(props) {
     <div>
       <div className='header'>
         <div className='landing'>
-          <Link to='landing' className='landingLink'>
+          <Link to='/' className='landingLink'>
             Conspiracy Peerist
           </Link>
         </div>
