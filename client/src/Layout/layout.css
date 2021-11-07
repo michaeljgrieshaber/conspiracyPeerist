@@ -1,0 +1,43 @@
+.header{
+  background-color: #9CAEBC;
+  display: flex;
+  justify-content: space-around;
+  color: black;
+}
+
+.landing{
+  margin-left: 5%;
+}
+
+.landingLink{
+  color: black;
+  font-size: 45px;
+  text-decoration: none;
+
+}
+
+.headerTags{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin: auto;
+}
+
+.welcome{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+.homeLink{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+
+}
+
+.loginButton{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+
+}

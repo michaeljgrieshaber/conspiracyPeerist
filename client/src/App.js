@@ -49,9 +49,7 @@ function App() {
       
         <Switch>
 
-        <Route path='/landing'>
-          <h2>landing</h2>
-          </Route>
+
 
         <Route path='/login'>
           <Login
@@ -66,7 +64,9 @@ function App() {
           </Route>
 
           <Route path='/'>
-            <MainContainer />
+            <MainContainer
+            currentUser={currentUser}
+            />
           </Route>
 
         </Switch>
