@@ -6,9 +6,11 @@ import MakePost from "../Screens/MakePost/MakePost"
 import { createPost } from "../Services/posts"
 import OnePost from "../Screens/OnePost/OnePost"
 import EditComment from "../Screens/EditComment/EditComment"
+import Landing from '../Screens/Landing/Landing'
 
 
-export default function MainContainer() {
+export default function MainContainer(props) {
+  const {currentUser} = props
   const [posts, setPosts] = useState([])
   const [toggle, setToggle] = useState(false)
 
@@ -45,7 +47,7 @@ export default function MainContainer() {
       <Route path='/posts/:id'>
           <OnePost
             posts={posts}
-            
+            currentUser={currentUser}
           />
           </Route>
         <Route path='/posts'>
@@ -58,6 +60,9 @@ export default function MainContainer() {
             handleMakePost={handleMakePost}
           />
         </Route>
+        <Route path='/'>
+          <Landing />
+          </Route>
 
 
       </Switch>
