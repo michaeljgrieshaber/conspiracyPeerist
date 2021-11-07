@@ -20,14 +20,12 @@ export default function MakePost(props) {
         e.preventDefault()
         handleMakePost(formData)
       }}>
-      <label>
-        Title:
+          <div>Title:</div>
         <input
           type='text'
           value={title}
           onChange={handleChange}
         />
-      </label>
       <button>Submit</button>
       </form>
     </div>

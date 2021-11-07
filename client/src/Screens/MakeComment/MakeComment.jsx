@@ -20,17 +20,14 @@ export default function MakeComment(props) {
         e.preventDefault()
         handleMakeComment({ ...formData, post_id:post.id })
       }}>
-      <label>
-        Add Comment:
+          <div>Add Comment:</div>
         <input
           type='text'
           value={content}
           onChange={handleChange}
         />
-      </label>
       <button>Submit</button>
       </form>
-      
     </div>
   )
 }

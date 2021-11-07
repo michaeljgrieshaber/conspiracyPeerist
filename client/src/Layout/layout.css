@@ -16,18 +16,13 @@
 
 }
 
-.headerTags{
+.headerTagsLoggedOut{
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   margin: auto;
 }
 
-.welcome{
-  text-decoration: none;
-  color: black;
-  font-size: 25px;
-}
 .homeLink{
   text-decoration: none;
   color: black;
@@ -39,5 +34,34 @@
   text-decoration: none;
   color: black;
   font-size: 25px;
+  
+}
+
+.registerLink{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+
+
+
+
+
+
+.headerTagsLoggedIn{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  margin: auto;
+}
+
+.welcome{
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+
+
+.logoutButton{
 
 }
