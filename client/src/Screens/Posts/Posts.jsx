@@ -6,7 +6,7 @@ export default function Posts(props) {
 
   function verify() {
     if (localStorage.length === 1) {
-      return <Link to='/makepost' className='makePostLink'>Create a post</Link>
+      return <Link to='/makepost' className='makePostLink'>+ Create a post</Link>
       } else {
     }
   }
