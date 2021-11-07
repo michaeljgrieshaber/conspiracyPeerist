@@ -5,7 +5,9 @@ import { deleteComment, makeComment } from "../../Services/comments"
 import { Link } from 'react-router-dom'
 
 export default function OnePost(props) {
-  const { posts, currentUser } = props
+  const { posts } = props
+  // const {currentUser } = props
+
   const { id } = useParams();
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState(null)
