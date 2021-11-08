@@ -17,7 +17,7 @@ export default function Layout(props) {
             <div className='headerTagsLoggedIn'>
               <div className='welcome'>Welcome {currentUser.username}</div>
               <div ><Link to='/posts' className='homeLink'>Home</Link></div>
-              <div className='logoutButton'><button onClick={handleLogout}>Logout</button></div>
+              <div className='logoutButton'><button onClick={handleLogout} className='logoutButton' >Logout</button></div>
             </div>
             :
             <div className='headerTagsLoggedOut'>
