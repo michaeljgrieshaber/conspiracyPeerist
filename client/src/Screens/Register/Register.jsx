@@ -2,13 +2,11 @@ import { useState } from 'react'
 import './register.css'
 
 export default function Register(props) {
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     username: ''
   })
-
   const {email, password, username} = formData
 
   const handleChange = (e) => {
@@ -18,6 +16,7 @@ export default function Register(props) {
       [name]:value
     }))
   }
+  
   return (
     <div>
       <h2>Register</h2>
