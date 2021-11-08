@@ -26,7 +26,6 @@ export default function Layout(props) {
               <div><Link to='/login' className='loginButton'>Login</Link></div>
             </div>
           }
-      <hr/>
       </div>
       {children}
     </div>
