@@ -13,8 +13,8 @@ export default function Posts(props) {
   
   return (
     <div>
-      <div className='postsHeader'>Posts</div>
-      {verify()}
+      <div className='postsHeader'>Select a theory to view and comment!</div>
+      <div className='makePostLinkSpot'>{verify()}</div>
       {posts.map((post) => (
         <div key={`post${post.id}`}>
             <div className='postCardContainer'>

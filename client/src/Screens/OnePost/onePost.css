@@ -8,18 +8,23 @@
   color: white;
   max-width: 100px;
   margin: auto;
+  padding: 1%;
+  margin-top: 1%;
+
+}
+
+.commentContainer{
+  display: flex;
+  justify-content: center;
 }
 
 .comment{
   background: #4280A5;
   color: white;
-  max-width: 100px;
-  margin: auto;
+  margin: 1%;
+  padding: 1%;
 
 }
-
-
-
 
 .editButton{
   background-color: #C4C4C4;
@@ -27,4 +32,17 @@
 
 .deleteButton{
   background-color: red;
+}
+
+@media only screen and (max-width: 768px) {
+  .comment{
+    background-color: #0c3045;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .comment{
+    background-color: #7e1783;
+    
+  }
 }

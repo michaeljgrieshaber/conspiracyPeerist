@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './login.css'
 
 export default function Login(props) {
   const [formData, setFormData] = useState({
@@ -37,8 +38,10 @@ export default function Login(props) {
         type='password'
         name='password'
         value={password}
-          onChange={handleChange}/>
-        <button>Submit</button>
+          onChange={handleChange} />
+        <div>
+        <button className='loginSubmitButton'>Submit</button>
+        </div>
       </form>
     </div>
   )

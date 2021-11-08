@@ -1,6 +1,5 @@
 import { useState } from 'react'
-// import { Link } from 'react-router-dom'
-
+import './register.css'
 
 export default function Register(props) {
 
@@ -45,8 +44,10 @@ export default function Register(props) {
         type='password'
         name='password'
         value={password}
-          onChange={handleChange}/>
-        <button>Submit</button>
+          onChange={handleChange} />
+        <div>
+        <button className='registerSubmitButton'>Submit</button>
+        </div>
       </form>
     </div>
   )
