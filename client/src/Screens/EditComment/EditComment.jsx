@@ -10,9 +10,7 @@ export default function EditComment(props) {
   const { id } = useParams()
   const {setToggle} = props
   const history = useHistory()
-
   
-
   useEffect(() => {
     const prefillFormData = async () => {
       const oneComment = await getOneComment(id)
@@ -26,13 +24,12 @@ export default function EditComment(props) {
     const handleChange = (e) => {
       const { value } = e.target
       setFormData({ content: value })
-
     }
   
   const handleSubmit = async ()=> {
     const newComment = await updateComment(id, formData)
     setToggle(prevState => !prevState)
-history.push(`/posts/${newComment.post_id}`)
+    history.push(`/posts/${newComment.post_id}`)
   }
 
 

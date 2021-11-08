@@ -5,14 +5,12 @@ export default function MakeComment(props) {
     content: ''
     })
     const {handleMakeComment, post} = props
-    
     const {content} = formData
   
     const handleChange = (e) => {
       const { value } = e.target
       setFormData({ content: value })
     }
-
 
   return (
     <div>
@@ -21,12 +19,12 @@ export default function MakeComment(props) {
         handleMakeComment({ ...formData, post_id:post.id })
       }}>
           <div>Add Comment:</div>
-        <input
-          type='text'
-          value={content}
-          onChange={handleChange}
-        />
-      <button>Submit</button>
+            <input
+              type='text'
+              value={content}
+              onChange={handleChange}
+            />
+          <button>Submit</button>
       </form>
     </div>
   )

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import './landing.css';
 
-
 export default function Landing() {
   return (
     <div className='landingDiv'>

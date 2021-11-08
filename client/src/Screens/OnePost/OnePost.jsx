@@ -8,13 +8,10 @@ import './onePost.css'
 export default function OnePost(props) {
   const { posts } = props
   const {currentUser } = props
-
   const { id } = useParams();
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState(null)
 
-  
-  
   useEffect(() => {
     const test = () => {
       const singlePost = posts.find(element => element.id === Number(id))
@@ -26,7 +23,6 @@ export default function OnePost(props) {
     }
   }, [id, posts])
   
-  
   const handleMakeComment = async (formData) => {
     const newComment = await makeComment(formData)
     setComments(prevState => [...prevState, newComment])
@@ -37,8 +33,15 @@ export default function OnePost(props) {
     setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
   }
 
-
-
+  function verify() {
+    if (localStorage.length === 1) {
+      return <MakeComment
+      post={post}
+      handleMakeComment={handleMakeComment}
+      />
+      } else {
+    }
+  }
 
   return (
     <div className='onePostPage'>
@@ -48,12 +51,11 @@ export default function OnePost(props) {
         </div>
       <div> {comments?.map(comment => (
         <div key={comment.id}>
-        <div className='commentContainer'>
-          <div className='comment'>
-            {comment?.content}
-            {`-${comment?.user?.username}`}
-
-            {comment.user_id === currentUser?.id ?
+          <div className='commentContainer'>
+            <div className='comment'>
+              {comment?.content}
+              {`-${comment?.user?.username}`}
+              {comment.user_id === currentUser?.id ?
                 <div>
                   <Link to={`/comments/${comment?.id}`}><button className='editButton'>Edit</button></Link>
                   <button className='deleteButton' onClick={() => handleCommentDelete(comment.id)}>X</button> 
@@ -61,16 +63,13 @@ export default function OnePost(props) {
                 :
                 <div>
                 </div>
-            }
+              }
+              </div>
+            </div>
           </div>
-          </div>
-        </div>
-      ))}
+        ))}
       </div>
-      <MakeComment
-        post={post}
-      handleMakeComment={handleMakeComment}
-      />
+      {verify()}
     </div>
   )
 }

@@ -13,7 +13,6 @@ export default function MainContainer(props) {
   const {currentUser} = props
   const [posts, setPosts] = useState([])
   const [toggle, setToggle] = useState(false)
-
   const history = useHistory()
 
   useEffect(() => {
@@ -30,26 +29,20 @@ export default function MainContainer(props) {
     history.push('/posts')
   }
 
-
-
-
   return (
     <div>
-        
       <Switch>
-
-      <Route path='/comments/:id'>
+        <Route path='/comments/:id'>
           <EditComment
           setToggle={setToggle}
           />
         </Route>
-        
-      <Route path='/posts/:id'>
+        <Route path='/posts/:id'>
           <OnePost
             posts={posts}
             currentUser={currentUser}
           />
-          </Route>
+        </Route>
         <Route path='/posts'>
           <Posts
           posts={posts}
@@ -62,9 +55,7 @@ export default function MainContainer(props) {
         </Route>
         <Route exact path='/'>
           <Landing />
-          </Route>
-
-
+        </Route>
       </Switch>
     </div>
   )

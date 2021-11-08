@@ -5,7 +5,6 @@ export default function MakePost(props) {
   title: ''
   })
   const {handleMakePost} = props
-  
   const {title} = formData
 
   const handleChange = (e) => {
@@ -16,18 +15,18 @@ export default function MakePost(props) {
   return (
     <div>
       <h2>Create Your Own Post</h2>
-      <form onSubmit={(e) => {
-        e.preventDefault()
-        handleMakePost(formData)
-      }}>
+        <form onSubmit={(e) => {
+          e.preventDefault()
+          handleMakePost(formData)
+        }}>
           <div>Title:</div>
-        <input
-          type='text'
-          value={title}
-          onChange={handleChange}
-        />
-      <button>Submit</button>
-      </form>
+            <input
+              type='text'
+              value={title}
+              onChange={handleChange}
+            />
+            <button>Submit</button>
+        </form>
     </div>
   )
 }
