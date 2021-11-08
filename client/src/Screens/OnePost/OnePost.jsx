@@ -7,7 +7,7 @@ import './onePost.css'
 
 export default function OnePost(props) {
   const { posts } = props
-  // const {currentUser } = props
+  const {currentUser } = props
 
   const { id } = useParams();
   const [post, setPost] = useState(null)
@@ -51,17 +51,17 @@ export default function OnePost(props) {
           <div className='comment'>
           {comment?.content}
           {`-${comment?.user?.username}`}
-          <Link to={`/comments/${comment?.id}`}><button className='editButton'>Edit</button></Link>
-          <button className='deleteButton' onClick={() => handleCommentDelete(comment.id)}>X</button> 
           
-          {/* {
-              comment.user_id === currentUser.id ?
+          {
+              comment.user_id === currentUser?.id ?
                 <div>
+                          <Link to={`/comments/${comment?.id}`}><button className='editButton'>Edit</button></Link>
+          <button className='deleteButton' onClick={() => handleCommentDelete(comment.id)}>X</button> 
                 </div>
           :
                 <div>
                 </div>
-          } */}
+          }
           </div>
           
 
