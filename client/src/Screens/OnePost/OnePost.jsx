@@ -34,6 +34,15 @@ export default function OnePost(props) {
     setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
   }
 
+  const handlePostDelete = async (id) => {
+    console.log(typeof(id))
+    await deletePost(id)
+    // setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
+  }
+
+
+
+
   function verify() {
     if (localStorage.length === 1) {
       return <MakeComment
@@ -50,18 +59,13 @@ export default function OnePost(props) {
       <div >{post?.title}</div>
         <div>By: {post?.user?.username}</div>
         {post?.user_id === currentUser?.id ?
-  <div>
-    <button className='deleteButton'>X</button> 
-  </div>
-  :
-  <div>
-  </div>
-}
-
-
-        {/* <button className='deleteButton'>X</button> */}
-
-
+          <div>
+            <button className='deleteButton' onClick={() => handlePostDelete(post.id)}>X</button> 
+          </div>
+            :
+          <div>
+          </div>
+        }
         </div>
       <div> {comments?.map(comment => (
         <div key={comment.id}>

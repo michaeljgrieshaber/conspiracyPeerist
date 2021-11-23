@@ -16,6 +16,6 @@ export const createPost = async (postData) => {
 }
 
 export const deletePost = async (id) => {
-  const resp = await api.delete(`/Post/${id}`)
+  const resp = await api.delete(`/posts/${id}`)
   return resp
 }
