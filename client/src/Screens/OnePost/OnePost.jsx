@@ -4,6 +4,7 @@ import MakeComment from '../MakeComment/MakeComment'
 import { deleteComment, makeComment } from "../../Services/comments"
 import { Link } from 'react-router-dom'
 import './onePost.css'
+import { deletePost } from "../../Services/posts"
 
 export default function OnePost(props) {
   const { posts } = props
@@ -48,6 +49,19 @@ export default function OnePost(props) {
       <div className='titleAndName'>
       <div >{post?.title}</div>
         <div>By: {post?.user?.username}</div>
+        {post?.user_id === currentUser?.id ?
+  <div>
+    <button className='deleteButton'>X</button> 
+  </div>
+  :
+  <div>
+  </div>
+}
+
+
+        {/* <button className='deleteButton'>X</button> */}
+
+
         </div>
       <div> {comments?.map(comment => (
         <div key={comment.id}>
