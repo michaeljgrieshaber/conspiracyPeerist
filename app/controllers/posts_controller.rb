@@ -49,7 +49,7 @@ class PostsController < ApplicationController
     end
 
     def set_user_post
-      @post = @current_user.post.find(params[:id])
+      @post = @current_user.posts.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
