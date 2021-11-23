@@ -35,7 +35,6 @@ export default function OnePost(props) {
   }
 
   const handlePostDelete = async (id) => {
-    console.log(typeof(id))
     await deletePost(id)
     // setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
   }
