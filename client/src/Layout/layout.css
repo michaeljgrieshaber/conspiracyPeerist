@@ -52,9 +52,7 @@
 
 .headerTagsLoggedIn{
   display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-  margin: auto;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: column;
   background-color: #9CAEBC;
