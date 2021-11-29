@@ -10,6 +10,10 @@ export default function Posts(props) {
       } else {
     }
   }
+
+  if (posts.length === 0) {
+    return <div>Loading the Truth</div>
+  }
   
   return (
     <div>
