@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import {useState, useEffect} from 'react'
 import MakeComment from '../MakeComment/MakeComment'
 import { deleteComment, makeComment } from "../../Services/comments"
@@ -12,6 +12,7 @@ export default function OnePost(props) {
   const { id } = useParams();
   const [post, setPost] = useState(null)
   const [comments, setComments] = useState(null)
+  const history = useHistory()
 
   useEffect(() => {
     const test = () => {
@@ -36,7 +37,8 @@ export default function OnePost(props) {
 
   const handlePostDelete = async (id) => {
     await deletePost(id)
-    // setComments((prevState)=> prevState.filter((comment)=>comment.id !== id))
+    history.push('/posts')
+    window.location.reload(false)
   }
 
 
