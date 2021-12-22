@@ -1,4 +1,4 @@
-# Conspiracy Theories
+# Conspiracy Peerist
 
 
 [Github](https://github.com/michaeljgrieshaber/conspiracyTheories)
@@ -79,13 +79,13 @@ Time Estimtates
 | Day | Deliverable | Status |
 | --------- | --------------------------- | ---------- |
 | 11/01/21 | Work on README/pitch | complete |
-| 11/02/21 | Get approved, Code backend | incomplete |
-| 11/03/21 | Code backend, Code frontend | incomplete |
-| 11/04/21 | Code frontend | incomplete |
-| 11/05/21 | Code frontend/CSS | incomplete |
-| 11/06/21 | CSS | incomplete |
-| 11/07/21 | CSS | incomplete |
-| 11/08/21 | Present | incomplete |
+| 11/02/21 | Get approved, Code backend | complete |
+| 11/03/21 | Code backend, Code frontend | complete |
+| 11/04/21 | Code frontend | complete |
+| 11/05/21 | Code frontend/CSS | complete |
+| 11/06/21 | CSS | complete |
+| 11/07/21 | CSS | complete |
+| 11/08/21 | Present | complete |
 | 11/08/21+ | Post MVP | incomplete |
 
 | Component            | Priority | Estimated Time | Time Invested |
